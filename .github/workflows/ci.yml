@@ -1,0 +1,28 @@
+name: CI
+
+# run on every push and pull request
+on: [push, pull_request]
+
+jobs:
+  test:
+    # creates a Node.js runner (a fresh Ubuntu container)
+    runs-on: ubuntu-latest
+    steps:
+      # clones your code into the runner
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # builds your code
+      - name: Install dependencies and build
+        run: |
+          npm install
+          npm run build
+
+      # runs the tests
+      - name: Run tests
+        run: npm test

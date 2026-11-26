@@ -1,0 +1,12 @@
+{
+  "name": "ex3-github-actions",
+  "version": "1.0.0",
+  "description": "Small Node.js server with tests, run by GitHub Actions",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "node --check server.js && node --check functions.js",
+    "test": "node --test"
+  },
+  "license": "ISC"
+}
